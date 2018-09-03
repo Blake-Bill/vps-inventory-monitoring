@@ -66,7 +66,7 @@ CREATE TABLE `xm_index` (
   `ip6` smallint(5) unsigned DEFAULT NULL,
   `frame` varchar(25) DEFAULT NULL,
   `flow` varchar(150) DEFAULT NULL,
-  `bandwidth` varchar(25) unsigned DEFAULT NULL,
+  `bandwidth` varchar(25) DEFAULT NULL,
   `stock` tinyint(1) DEFAULT '1',
   `remark` text,
   `buy` text,
@@ -399,75 +399,6 @@ CREATE TABLE `xm_user` (
 
 INSERT INTO `xm_user` (`id`, `user`, `pass`, `ftsckey`, `tgsckey`, `subscribe`, `create_time`, `update_time`, `delete_time`) VALUES
 (1, 'admin', '', '', '', ',19,18,17', 1521724322, 1521725459, NULL);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `xm_company`
---
-ALTER TABLE `xm_company`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `xm_index`
---
-ALTER TABLE `xm_index`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `xm_log`
---
-ALTER TABLE `xm_log`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `xm_place`
---
-ALTER TABLE `xm_place`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `xm_user`
---
-ALTER TABLE `xm_user`
-  ADD PRIMARY KEY (`id`);
-
---
--- 在导出的表使用AUTO_INCREMENT
---
-
---
--- 使用表AUTO_INCREMENT `xm_company`
---
-ALTER TABLE `xm_company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- 使用表AUTO_INCREMENT `xm_index`
---
-ALTER TABLE `xm_index`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- 使用表AUTO_INCREMENT `xm_log`
---
-ALTER TABLE `xm_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
-
---
--- 使用表AUTO_INCREMENT `xm_place`
---
-ALTER TABLE `xm_place`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- 使用表AUTO_INCREMENT `xm_user`
---
-ALTER TABLE `xm_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
