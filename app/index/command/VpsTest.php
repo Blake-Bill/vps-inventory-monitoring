@@ -18,7 +18,7 @@ class VpsTest extends Command{
     }
     protected function execute(Input $input, Output $output){
         //获取参数值
-        Config::load(APP_PATH . 'index/config.php'); 
+        Config::load(APP_PATH . 'index/config.php');
         $log = new Log;
         $index =  new Index;
         $user = new User;
@@ -43,8 +43,8 @@ class VpsTest extends Command{
                 }
                 if ($value["stock"] == false && $a == true){
                     $p = $user->where("find_in_set({$value['id']},subscribe)")->select();
-                    $title = "您关注的{$value['name']}有货啦。";
-                    $content = "您关注的{$value['name']}有货啦。\n快来大肆抢购呀。\n测评地址：$host/ceping/{$value['id']}\n购买地址：$host/buy/{$value['id']}";
+                    $title = "您关注的{$value['companyname']}{$value['name']}有货啦。";
+                    $content = "您关注的{$value['companyname']} - {$value['name']}有货啦。\n快来大肆抢购呀。\n月付价格：{$value['id']}{$value['monthly']}丨年付价格：{$value['yearly']}\n测评地址：$host/ceping/{$value['id']}{$value['id']}\n购买地址：$host/buy/{$value['id']}\n备注：{$value['remark']}";
                     foreach ($p as $k => $v) {
                         if ($v["ftsckey"] != ""){
                             go_curl("https://sc.ftqq.com/{$v['ftsckey']}.send","post", ["text"=>$title,"desp"=>$content]);

@@ -357,7 +357,7 @@
                         window.location.reload();
                         return;
                     }
-                    alert("帐号或密码错误.请重试！");
+                    alert("帐号或密码错误，请重试！");
                 }
             })
         }
@@ -371,9 +371,11 @@
                     if (re.status == 0){
                         alert("帐号已存在,请更改其他重试。")
                         return ;
+                    if (re.status == 1){
+                        alert("注册成功！")
                     }
                     if (re.status == 2){
-                        alert("验证码错误")
+                        alert("验证码错误。")
                         return ;
                     }
                     window.location.reload();

@@ -14,7 +14,7 @@ class Index extends Controller
         }else{
             $this->assign("islogin",false);
         }
-        
+
         $this->assign("tgchannel",config("app.tgchannel"));
         $this->assign("iscaptcha",config("app.captcha"));
         return $this->fetch();
@@ -37,7 +37,7 @@ class Index extends Controller
         }
         $this->assign("companyarr",str_replace(["\t"," "],"",join(Model("Company")->getcolumnname(),'","')));
         $this->assign("placearr",str_replace(["\t"," "],"",join(Model("Place")->getcolumnname(),'","')));
-        
+
         return $this->fetch();
     }
     public function savedata(){
@@ -54,9 +54,9 @@ class Index extends Controller
         }
         $data = input('post.');
       	if(model('Index')->saveData( $data ) > 0){
-            return $this->success("添加成功",url("/"));
+            return $this->success("添加成功！",url("/"));
         }else{
-            return $this->fail("添加失败",url("/"));
+            return $this->fail("添加失败！",url("/"));
         }
     }
     public function test(){
@@ -86,5 +86,5 @@ class Index extends Controller
         $data = input('post.');
         return model('User')->subscribe( $data );
     }
-    
+
 }
